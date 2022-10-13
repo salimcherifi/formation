@@ -16,14 +16,13 @@ class RoverTests {
 
         assertThat(rover).isEqualTo(Rover(Position(0, 0), S))
     }
-
     @Test
-    internal fun `rover should be able to receive some commands`() {
-        val rover = Rover(Position(), S)
-        val commands: List<Command> = listOf(Command("A"), Command("B"), Command("C"))
+    internal fun `should move the rover forward`() {
+        val rover = Rover(Position(), N)
+        val commands: List<Command> = listOf(Command("F"))
 
-        val executedCommands = rover.receive(commands)
+        val roverPosition = rover.execute(commands)
 
-        assertThat(executedCommands).isEqualTo(commands)
+        assertThat(roverPosition).isEqualTo(Rover(Position(0, 1), N))
     }
 }
