@@ -1,3 +1,3 @@
 package com.formation.marsrover.domain
 
-data class Command(val value: String)
+data class Command(val movement: Movement)
