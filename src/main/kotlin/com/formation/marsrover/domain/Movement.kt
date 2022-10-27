@@ -1,5 +1,6 @@
 package com.formation.marsrover.domain
 
-enum class Movement(val value: Int) {
-    F(1),B(-1)
+enum class Movement(val step: Position) {
+    F(Position(0, 1)),
+    B(Position(1, 0))
 }
