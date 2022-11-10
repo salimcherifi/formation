@@ -1,6 +1,6 @@
 package com.formation.marsrover.infrastructure.api
 
-import com.formation.marsrover.domain.Rover.Rover
+import com.formation.marsrover.domain.rover.Rover
 
 data class RoverView(val x: Int, val y: Int, val direction: String) {
     companion object {

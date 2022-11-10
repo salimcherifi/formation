@@ -1,4 +1,4 @@
-package com.formation.marsrover.domain.Rover
+package com.formation.marsrover.domain.rover
 
 data class Position(val x: Int = 0, val y: Int = 0) {
 

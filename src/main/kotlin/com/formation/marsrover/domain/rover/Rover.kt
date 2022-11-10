@@ -1,4 +1,4 @@
-package com.formation.marsrover.domain.Rover
+package com.formation.marsrover.domain.rover
 
 import com.formation.marsrover.domain.NasaInstruction
 

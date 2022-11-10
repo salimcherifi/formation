@@ -1,6 +1,6 @@
 package com.formation.marsrover.domain
 
-import com.formation.marsrover.domain.Rover.Position
+import com.formation.marsrover.domain.rover.Position
 
 enum class Movement(val step: Position) {
     F(Position(0, 1)),

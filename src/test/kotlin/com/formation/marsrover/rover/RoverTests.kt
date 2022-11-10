@@ -1,11 +1,11 @@
 package com.formation.marsrover.rover
 
 import com.formation.marsrover.domain.NasaInstruction
-import com.formation.marsrover.domain.Rover.Direction.*
+import com.formation.marsrover.domain.rover.Direction.*
 import com.formation.marsrover.domain.Movement.B
 import com.formation.marsrover.domain.Movement.F
-import com.formation.marsrover.domain.Rover.Position
-import com.formation.marsrover.domain.Rover.Rover
+import com.formation.marsrover.domain.rover.Position
+import com.formation.marsrover.domain.rover.Rover
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
