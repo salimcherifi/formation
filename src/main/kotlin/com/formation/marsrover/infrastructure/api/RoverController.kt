@@ -5,12 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class RoverController {
+class RoverController(
+    private val roverAdapter: RoverAdapter
+) {
 
     @GetMapping("/rover")
     fun getRover(): ResponseEntity<RoverView> {
-        //return ResponseEntity.ok(roverAdapter.find())
-        TODO()
+        return ResponseEntity.ok(roverAdapter.getOne())
     }
 
 }

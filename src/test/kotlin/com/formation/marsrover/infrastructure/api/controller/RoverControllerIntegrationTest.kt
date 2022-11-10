@@ -1,16 +1,18 @@
 package com.formation.marsrover.infrastructure.api.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.json.JsonMapper
+import com.formation.marsrover.infrastructure.api.RoverAdapter
 import com.formation.marsrover.infrastructure.api.RoverView
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+
 
 
 @SpringBootTest
@@ -23,8 +25,11 @@ class RoverControllerIntegrationTest {
     @Autowired
     private lateinit var jsonMapper: ObjectMapper
 
+    private lateinit var roverAdapter: RoverAdapter
+
     @Test
     fun `should get rover`() {
+
         mockMvc.perform(
             MockMvcRequestBuilders.get("/rover")
         ).andExpect(

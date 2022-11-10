@@ -1,4 +1,4 @@
-package com.formation.marsrover.domain
+package com.formation.marsrover.domain.Rover
 
 enum class Direction(value: String) {
     S("SOUTH"),

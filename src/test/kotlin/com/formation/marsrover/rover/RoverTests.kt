@@ -1,11 +1,11 @@
 package com.formation.marsrover.rover
 
-import com.formation.marsrover.domain.Command
-import com.formation.marsrover.domain.Direction.*
+import com.formation.marsrover.domain.NasaInstruction
+import com.formation.marsrover.domain.Rover.Direction.*
 import com.formation.marsrover.domain.Movement.B
 import com.formation.marsrover.domain.Movement.F
-import com.formation.marsrover.domain.Position
-import com.formation.marsrover.domain.Rover
+import com.formation.marsrover.domain.Rover.Position
+import com.formation.marsrover.domain.Rover.Rover
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
@@ -21,9 +21,9 @@ class RoverTests {
     @Test
     internal fun `should move the rover forward`() {
         val rover = Rover(Position(), N)
-        val commands: List<Command> = listOf(Command(F))
+        val nasaInstructions: List<NasaInstruction> = listOf(NasaInstruction(F))
 
-        val roverPosition = rover.execute(commands)
+        val roverPosition = rover.execute(nasaInstructions)
 
         assertThat(roverPosition).isEqualTo(Rover(Position(0, 1), N))
     }
@@ -31,9 +31,9 @@ class RoverTests {
     @Test
     internal fun `should move the rover backward`() {
         val rover = Rover(Position(), W)
-        val commands: List<Command> = listOf(Command(B))
+        val nasaInstructions: List<NasaInstruction> = listOf(NasaInstruction(B))
 
-        val roverPosition = rover.execute(commands)
+        val roverPosition = rover.execute(nasaInstructions)
 
         assertThat(roverPosition).isEqualTo(Rover(Position(1, 0), W))
     }
