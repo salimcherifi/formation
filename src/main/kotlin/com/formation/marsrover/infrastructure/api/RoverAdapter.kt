@@ -4,10 +4,13 @@ import com.formation.marsrover.domain.command.GetRover
 import org.springframework.stereotype.Component
 
 @Component
-class RoverAdapter() {
+class RoverAdapter(private val getRover: GetRover) {
+
 
     fun getOne(): RoverView {
-        TODO("Not yet implemented")
+        return getRover.execute().let {
+            RoverView.from(it)
+        }
     }
 
 }

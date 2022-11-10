@@ -1,25 +1,22 @@
 package com.formation.marsrover.infrastructure.api.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.formation.marsrover.domain.command.GetRover
 import com.formation.marsrover.infrastructure.api.RoverAdapter
 import com.formation.marsrover.infrastructure.api.RoverView
-import com.ninjasquad.springmockk.MockkBean
-import io.mockk.every
+import io.mockk.impl.annotations.MockK
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.mockito.InjectMocks
+import org.mockito.Mock
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-
-
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class RoverControllerIntegrationTest {
+class RoverAdapterTest {
 
     @Autowired
     private lateinit var mockMvc: MockMvc
@@ -27,16 +24,15 @@ class RoverControllerIntegrationTest {
     @Autowired
     private lateinit var jsonMapper: ObjectMapper
 
-    @MockkBean
+    @InjectMocks
     private lateinit var roverAdapter: RoverAdapter
 
+    @Mock
+    private lateinit var getRover: GetRover
+
     @Test
-    fun `should get rover`() {
-    every { roverAdapter.getOne() }returns RoverView(0, 0, "N")
-        mockMvc.perform(
-            MockMvcRequestBuilders.get("/rover")
-        ).andExpect(
-            status().isOk
-        ).andExpect(content().json(jsonMapper.writeValueAsString(RoverView(0, 0, "N"))))
+    fun `should return a RoverView`() {
+        var roverView = roverAdapter.getOne();
+        assertThat(roverView).isEqualTo(RoverView(0,0, "N"));
     }
 }
